@@ -19,7 +19,7 @@ Table Of Content
 08 AOS ANIMATION
 09 TILT ANIMATION
 10 STICKY BAR
-11 FORM VALIDATION
+11 CONTACT FORM
 12 TOOLTIP
 13 POPOVER
 14 BACK TO TOP
@@ -33,7 +33,26 @@ Table Of Content
 "use strict";
 !function () {
 
-    window.Element.prototype.removeClass = function () {
+    window.Element.prototype.fadeIn = function () {
+        let e = this, n = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 250,
+            o = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "linear",
+            i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null,
+            a = parseFloat(window.getComputedStyle(this).opacity), r = 1, c = function (t) {
+                e.style.opacity = a + (r - a) * t
+            };
+        1 !== a && t(n, r, o, c, i)
+
+        return this;
+    }, window.Element.prototype.fadeOut = function () {
+        let e = this, n = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 250,
+            o = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "linear",
+            i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null,
+            a = parseFloat(window.getComputedStyle(this).opacity), r = 0, c = function (t) {
+                e.style.opacity = a - a * t
+            };
+        0 !== a && t(n, r, o, c, i)
+        return this;
+    }, window.Element.prototype.removeClass = function () {
         let className = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "",
             selectors = this;
         if (!(selectors instanceof HTMLElement) && selectors !== null) {
@@ -72,24 +91,24 @@ Table Of Content
 var e = {
     init: function () {
         e.preLoader(),
-            e.customCursor(),
-            e.megaMenu(),
-            e.stickyHeader(),
-            e.tinySlider(),
-            e.parallaxBG(),
-            e.marqueeAnimate(),
-            e.aosFunc(),
-            e.tiltAnimation(),
-            e.stickyBar(),
-            e.formValidation(),
-            e.toolTipFunc(),
-            e.popOverFunc(),
-            e.backTotop(),
-            e.stickyFooter(),
-            e.lightBox(),
-            e.activeClass(),
-            e.typeText(),
-            e.enableIsotope();
+        e.customCursor(),
+        e.megaMenu(),
+        e.stickyHeader(),
+        e.tinySlider(),
+        e.parallaxBG(),
+        e.marqueeAnimate(),
+        e.aosFunc(),
+        e.tiltAnimation(),
+        e.stickyBar(),
+        e.contactForm(),
+        e.toolTipFunc(),
+        e.popOverFunc(),
+        e.backTotop(),
+        e.stickyFooter(),
+        e.lightBox(),
+        e.activeClass(),
+        e.typeText(),
+        e.enableIsotope();
     },
     isVariableDefined: function (el) {
         return typeof !!el && (el) != 'undefined' && el != null;
@@ -196,7 +215,7 @@ var e = {
         }
     },
     toggleAllClass: function (selectors, className) {
-        if (e.isVariableDefined(selectors) && (selectors instanceof HTMLElement)) {
+        if (e.isVariableDefined(selectors)  && (selectors instanceof HTMLElement)) {
             document.querySelectorAll(selectors).forEach((element) => {
                 element.toggleClass(className);
             });
@@ -223,7 +242,7 @@ var e = {
             var preloader = e.select('.preloader');
             if (e.isVariableDefined(preloader)) {
                 preloader.className += ' animate__animated animate__fadeOut';
-                setTimeout(function () {
+                setTimeout(function(){
                     preloader.style.display = 'none';
                 }, 200);
             }
@@ -246,7 +265,7 @@ var e = {
                 $dot: e.select('.cursor-dot'),
                 $outline: e.select('.cursor-dot-outline'),
 
-                init: function () {
+                init: function() {
                     // Set up element sizes
                     this.dotSize = this.$dot.offsetWidth;
                     this.outlineSize = this.$outline.offsetWidth;
@@ -255,7 +274,7 @@ var e = {
                     this.animateDotOutline();
                 },
 
-                updateCursor: function (e) {
+                updateCursor: function(e) {
                     var self = this;
 
                     console.log(e)
@@ -271,39 +290,33 @@ var e = {
                     self.$dot.style.left = self.endX + 'px';
                 },
 
-                setupEventListeners: function () {
+                setupEventListeners: function() {
                     var self = this;
 
-                    // Reposition cursor on window load
-                    window.addEventListener('load', (event) => {
-                        self.cursorEnlarged = false;
-                        self.toggleCursorSize();
-                    });
-
                     // Anchor hovering
-                    e.selectAll('a, button').forEach(function (el) {
-                        el.addEventListener('mouseover', function () {
+                    e.selectAll('a, button').forEach(function(el) {
+                        el.addEventListener('mouseover', function() {
                             self.cursorEnlarged = true;
                             self.toggleCursorSize();
                         });
-                        el.addEventListener('mouseout', function () {
+                        el.addEventListener('mouseout', function() {
                             self.cursorEnlarged = false;
                             self.toggleCursorSize();
                         });
                     });
 
                     // Click events
-                    document.addEventListener('mousedown', function () {
+                    document.addEventListener('mousedown', function() {
                         self.cursorEnlarged = true;
                         self.toggleCursorSize();
                     });
-                    document.addEventListener('mouseup', function () {
+                    document.addEventListener('mouseup', function() {
                         self.cursorEnlarged = false;
                         self.toggleCursorSize();
                     });
 
 
-                    document.addEventListener('mousemove', function (e) {
+                    document.addEventListener('mousemove', function(e) {
                         // Show the cursor
                         self.cursorVisible = true;
                         self.toggleCursorVisibility();
@@ -316,14 +329,14 @@ var e = {
                     });
 
                     // Hide/show cursor
-                    document.addEventListener('mouseenter', function (e) {
+                    document.addEventListener('mouseenter', function(e) {
                         self.cursorVisible = true;
                         self.toggleCursorVisibility();
                         self.$dot.style.opacity = 1;
                         self.$outline.style.opacity = 1;
                     });
 
-                    document.addEventListener('mouseleave', function (e) {
+                    document.addEventListener('mouseleave', function(e) {
                         self.cursorVisible = true;
                         self.toggleCursorVisibility();
                         self.$dot.style.opacity = 0;
@@ -331,7 +344,7 @@ var e = {
                     });
                 },
 
-                animateDotOutline: function () {
+                animateDotOutline: function() {
                     var self = this;
 
                     self._x += (self.endX - self._x) / self.delay;
@@ -342,7 +355,7 @@ var e = {
                     requestAnimationFrame(this.animateDotOutline.bind(self));
                 },
 
-                toggleCursorSize: function () {
+                toggleCursorSize: function() {
                     var self = this;
 
                     if (self.cursorEnlarged) {
@@ -354,7 +367,7 @@ var e = {
                     }
                 },
 
-                toggleCursorVisibility: function () {
+                toggleCursorVisibility: function() {
                     var self = this;
 
                     if (self.cursorVisible) {
@@ -380,7 +393,7 @@ var e = {
             if (e.isVariableDefined(element.nextElementSibling) && !element.nextElementSibling.classList.contains("show")) {
                 const parents = e.getParents(element, '.dropdown-menu');
                 e.removeClass(parents.querySelector('.show'), "show");
-                if (e.isVariableDefined(parents.querySelector('.dropdown-opened'))) {
+                if(e.isVariableDefined(parents.querySelector('.dropdown-opened'))){
                     e.removeClass(parents.querySelector('.dropdown-opened'), "dropdown-opened");
                 }
 
@@ -425,95 +438,97 @@ var e = {
 
     // START: 05 Tiny Slider
     tinySlider: function () {
+        var tnsCarousel = e.selectAll('.tiny-slider-inner');
         var $carousel = e.select('.tiny-slider-inner');
-        if (e.isVariableDefined($carousel)) {
-            var tnsCarousel = e.selectAll('.tiny-slider-inner');
-            tnsCarousel.forEach(slider => {
-                var slider1 = slider;
-                var sliderMode = slider1.getAttribute('data-mode') ? slider1.getAttribute('data-mode') : 'carousel';
-                var sliderAxis = slider1.getAttribute('data-axis') ? slider1.getAttribute('data-axis') : 'horizontal';
-                var sliderSpace = slider1.getAttribute('data-gutter') ? slider1.getAttribute('data-gutter') : 30;
-                var sliderEdge = slider1.getAttribute('data-edge') ? slider1.getAttribute('data-edge') : 0;
-
-                var sliderItems = slider1.getAttribute('data-items') ? slider1.getAttribute('data-items') : 4; //option: number (items in all device)
-                var sliderItemsXl = slider1.getAttribute('data-items-xl') ? slider1.getAttribute('data-items-xl') : Number(sliderItems); //option: number (items in 1200 to end )
-                var sliderItemsLg = slider1.getAttribute('data-items-lg') ? slider1.getAttribute('data-items-lg') : Number(sliderItemsXl); //option: number (items in 992 to 1199 )
-                var sliderItemsMd = slider1.getAttribute('data-items-md') ? slider1.getAttribute('data-items-md') : Number(sliderItemsLg); //option: number (items in 768 to 991 )
-                var sliderItemsSm = slider1.getAttribute('data-items-sm') ? slider1.getAttribute('data-items-sm') : Number(sliderItemsMd); //option: number (items in 576 to 767 )
-                var sliderItemsXs = slider1.getAttribute('data-items-xs') ? slider1.getAttribute('data-items-xs') : Number(sliderItemsSm); //option: number (items in start to 575 )
-
-                var sliderSpeed = slider1.getAttribute('data-speed') ? slider1.getAttribute('data-speed') : 500;
-                var sliderautoWidth = slider1.getAttribute('data-autowidth') === 'true'; //option: true or false
-                var sliderArrow = slider1.getAttribute('data-arrow') !== 'false'; //option: true or false
-                var sliderDots = slider1.getAttribute('data-dots') !== 'false'; //option: true or false
-
-                var sliderAutoPlay = slider1.getAttribute('data-autoplay') !== 'false'; //option: true or false
-                var sliderAutoPlayTime = slider1.getAttribute('data-autoplaytime') ? slider1.getAttribute('data-autoplaytime') : 4000;
-                var sliderHoverPause = slider1.getAttribute('data-hoverpause') === 'true'; //option: true or false
-                var sliderLoop = slider1.getAttribute('data-loop') !== 'false'; //option: true or false
-                var sliderRewind = slider1.getAttribute('data-rewind') === 'true'; //option: true or false
-                var sliderAutoHeight = slider1.getAttribute('data-autoheight') === 'true'; //option: true or false
-                var sliderfixedWidth = slider1.getAttribute('data-fixedwidth') === 'true'; //option: true or false
-                var sliderTouch = slider1.getAttribute('data-touch') !== 'false'; //option: true or false
-                var sliderDrag = slider1.getAttribute('data-drag') !== 'false'; //option: true or false
-                // Check if document DIR is RTL
-                var ifRtl = document.getElementsByTagName("html")[0].getAttribute("dir");
-                var sliderDirection;
-                if (ifRtl === 'rtl') {
-                    sliderDirection = 'rtl';
-                }
-
-                var tnsSlider = tns({
-                    container: slider,
-                    mode: sliderMode,
-                    axis: sliderAxis,
-                    gutter: sliderSpace,
-                    edgePadding: sliderEdge,
-                    speed: sliderSpeed,
-                    autoWidth: sliderautoWidth,
-                    controls: sliderArrow,
-                    nav: sliderDots,
-                    autoplay: sliderAutoPlay,
-                    autoplayTimeout: sliderAutoPlayTime,
-                    autoplayHoverPause: sliderHoverPause,
-                    autoplayButton: false,
-                    autoplayButtonOutput: false,
-                    controlsPosition: top,
-                    navPosition: top,
-                    autoplayPosition: top,
-                    controlsText: [
-                        '<i class="fas fa-chevron-left"></i>',
-                        '<i class="fas fa-chevron-right"></i>'
-                    ],
-                    loop: sliderLoop,
-                    rewind: sliderRewind,
-                    autoHeight: sliderAutoHeight,
-                    fixedWidth: sliderfixedWidth,
-                    touch: sliderTouch,
-                    mouseDrag: sliderDrag,
-                    arrowKeys: true,
-                    items: sliderItems,
-                    textDirection: sliderDirection,
-                    responsive: {
-                        0: {
-                            items: Number(sliderItemsXs)
-                        },
-                        576: {
-                            items: Number(sliderItemsSm)
-                        },
-                        768: {
-                            items: Number(sliderItemsMd)
-                        },
-                        992: {
-                            items: Number(sliderItemsLg)
-                        },
-                        1200: {
-                            items: Number(sliderItemsXl)
-                        }
-                    }
-                });
-            });
+        if (!e.isVariableDefined($carousel)) {
+            return true;
         }
+
+        tnsCarousel.forEach(slider => {
+            var slider1 = slider;
+            var sliderMode = slider1.getAttribute('data-mode') ? slider1.getAttribute('data-mode') : 'carousel';
+            var sliderAxis = slider1.getAttribute('data-axis') ? slider1.getAttribute('data-axis') : 'horizontal';
+            var sliderSpace = slider1.getAttribute('data-gutter') ? slider1.getAttribute('data-gutter') : 30;
+            var sliderEdge = slider1.getAttribute('data-edge') ? slider1.getAttribute('data-edge') : 0;
+
+            var sliderItems = slider1.getAttribute('data-items') ? slider1.getAttribute('data-items') : 4; //option: number (items in all device)
+            var sliderItemsXl = slider1.getAttribute('data-items-xl') ? slider1.getAttribute('data-items-xl') : Number(sliderItems); //option: number (items in 1200 to end )
+            var sliderItemsLg = slider1.getAttribute('data-items-lg') ? slider1.getAttribute('data-items-lg') : Number(sliderItemsXl); //option: number (items in 992 to 1199 )
+            var sliderItemsMd = slider1.getAttribute('data-items-md') ? slider1.getAttribute('data-items-md') : Number(sliderItemsLg); //option: number (items in 768 to 991 )
+            var sliderItemsSm = slider1.getAttribute('data-items-sm') ? slider1.getAttribute('data-items-sm') : Number(sliderItemsMd); //option: number (items in 576 to 767 )
+            var sliderItemsXs = slider1.getAttribute('data-items-xs') ? slider1.getAttribute('data-items-xs') : Number(sliderItemsSm); //option: number (items in start to 575 )
+
+            var sliderSpeed = slider1.getAttribute('data-speed') ? slider1.getAttribute('data-speed') : 500;
+            var sliderautoWidth = slider1.getAttribute('data-autowidth') === 'true'; //option: true or false
+            var sliderArrow = slider1.getAttribute('data-arrow') !== 'false'; //option: true or false
+            var sliderDots = slider1.getAttribute('data-dots') !== 'false'; //option: true or false
+
+            var sliderAutoPlay = slider1.getAttribute('data-autoplay') !== 'false'; //option: true or false
+            var sliderAutoPlayTime = slider1.getAttribute('data-autoplaytime') ? slider1.getAttribute('data-autoplaytime') : 4000;
+            var sliderHoverPause = slider1.getAttribute('data-hoverpause') === 'true'; //option: true or false
+            var sliderLoop = slider1.getAttribute('data-loop') !== 'false'; //option: true or false
+            var sliderRewind = slider1.getAttribute('data-rewind') === 'true'; //option: true or false
+            var sliderAutoHeight = slider1.getAttribute('data-autoheight') === 'true'; //option: true or false
+            var sliderfixedWidth = slider1.getAttribute('data-fixedwidth') === 'true'; //option: true or false
+            var sliderTouch = slider1.getAttribute('data-touch') !== 'false'; //option: true or false
+            var sliderDrag = slider1.getAttribute('data-drag') !== 'false'; //option: true or false
+            // Check if document DIR is RTL
+            var ifRtl = document.getElementsByTagName("html")[0].getAttribute("dir");
+            var sliderDirection
+            if (ifRtl === 'rtl') {
+                sliderDirection = 'rtl';
+            }
+
+            var tnsSlider = tns({
+                container: slider,
+                mode: sliderMode,
+                axis: sliderAxis,
+                gutter: sliderSpace,
+                edgePadding: sliderEdge,
+                speed: sliderSpeed,
+                autoWidth: sliderautoWidth,
+                controls: sliderArrow,
+                nav: sliderDots,
+                autoplay: sliderAutoPlay,
+                autoplayTimeout: sliderAutoPlayTime,
+                autoplayHoverPause: sliderHoverPause,
+                autoplayButton: false,
+                autoplayButtonOutput: false,
+                controlsPosition: top,
+                navPosition: top,
+                autoplayPosition: top,
+                controlsText: [
+                    '<i class="fas fa-chevron-left"></i>',
+                    '<i class="fas fa-chevron-right"></i>'
+                ],
+                loop: sliderLoop,
+                rewind: sliderRewind,
+                autoHeight: sliderAutoHeight,
+                fixedWidth: sliderfixedWidth,
+                touch: sliderTouch,
+                mouseDrag: sliderDrag,
+                arrowKeys: true,
+                items: sliderItems,
+                textDirection: sliderDirection,
+                responsive: {
+                    0: {
+                        items: Number(sliderItemsXs)
+                    },
+                    576: {
+                        items: Number(sliderItemsSm)
+                    },
+                    768: {
+                        items: Number(sliderItemsMd)
+                    },
+                    992: {
+                        items: Number(sliderItemsLg)
+                    },
+                    1200: {
+                        items: Number(sliderItemsXl)
+                    }
+                }
+            });
+        });
     },
     // END: Tiny Slider
 
@@ -589,37 +604,79 @@ var e = {
     },
     // END: Sticky Bar
 
-    // START: 11 Form Validation
-    formValidation: function () {
-        var formV = e.select('.needs-validation');
-        if (e.isVariableDefined(formV)) {
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.querySelectorAll('.needs-validation')
+    // START: 11 Contact Form
+    contactForm: function () {
+        var form = e.select('.contact-form');
+        if (e.isVariableDefined(form)) {
+            var message = e.select('.contact-msg');
 
-                // Loop over them and prevent submission
-                Array.prototype.slice.call(forms)
-                    .forEach(function (form) {
-                        form.addEventListener('submit', function (event) {
-                            if (!form.checkValidity()) {
-                                event.preventDefault()
-                                event.stopPropagation()
-                            }
+            // Success function
+            function done_func(data) {
+                message.fadeIn().removeClass('alert-danger').addClass('alert-success');
+                message.style.display = 'block';
+                message.textContent = data;
+                setTimeout(function () {
+                    message.fadeOut();
+                }, 5000);
+                form.querySelector('input:not([type="submit"]), textarea').value = '';
+            }
 
-                            form.classList.add('was-validated')
-                        }, false)
-                    })
-            }, false);
+            // fail function
+            function fail_func(response) {
+                message.fadeIn().removeClass('alert-success').addClass('alert-danger');
+                message.textContent = response;
+                message.style.display = 'block';
+                setTimeout(function () {
+                    message.fadeOut();
+                }, 5000);
+            }
+
+            e.on(form, 'submit', function (event) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                var request = new XMLHttpRequest();
+                request.open('POST.html', form.getAttribute('action'), true);
+                request.onload = function () {
+                    if (this.status >= 200 && this.status < 400) {
+                        // If successful
+                        done_func(this.response)
+                    } else {
+                        // If fail
+                        fail_func(this.response)
+                    }
+                };
+                request.onerror = function () {
+                    // Connection error
+                };
+                request.send(new FormData(event.target));
+                //request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;');
+                //request.send(event.target.serialize());
+            });
         }
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
     },
-    // END: Form Validation
+    // END: Contact Form
 
     // START: 12 Tooltip
     // Enable tooltips everywhere via data-toggle attribute
     toolTipFunc: function () {
         var tooltipTriggerList = [].slice.call(e.selectAll('[data-bs-toggle="tooltip"]'))
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
+          return new bootstrap.Tooltip(tooltipTriggerEl)
         })
     },
     // END: Tooltip
@@ -629,7 +686,7 @@ var e = {
     popOverFunc: function () {
         var popoverTriggerList = [].slice.call(e.selectAll('[data-bs-toggle="popover"]'))
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl)
+          return new bootstrap.Popover(popoverTriggerEl)
         })
     },
     // END: Popover
@@ -693,29 +750,29 @@ var e = {
     // START: 17 Active class
     activeClass: function () {
         var currentPath = window.location.pathname;
-        var path = currentPath.split("index-11.html").pop();
+        var path = currentPath.split("../index-11.html").pop();
 
         var d = e.select(".navbar-nav .dropdown");
-        if (e.isVariableDefined(d)) {
-            var hTarget = e.select('.navbar-nav li.nav-item.dropdown a.dropdown-item[href="' + path + '"]');
+        if(e.isVariableDefined(d)) {
+          var hTarget = e.select('.navbar-nav li.nav-item.dropdown a.dropdown-item[href="'+path+'"]');
 
-            if (e.isVariableDefined(hTarget)) {
-                var hh = hTarget.getAttribute("href");
+          if(e.isVariableDefined(hTarget)) {
+            var hh = hTarget.getAttribute("href");
 
-                if (path === hh) {
-                    hTarget.classList.add('active');
+            if(path === hh) {
+              hTarget.classList.add('active');
 
-                    var hParent = e.select('.navbar-nav li.nav-item.dropdown a.active.dropdown-item').closest(".nav-item.dropdown").children[0];
-                    hParent.classList.add("active");
+              var hParent = e.select('.navbar-nav li.nav-item.dropdown a.active.dropdown-item').closest(".nav-item.dropdown").children[0];
+              hParent.classList.add("active");
 
-                    var sm = e.select('.navbar-nav li.nav-item.dropdown a.active.dropdown-item').closest(".dropdown-submenu");
+              var sm = e.select('.navbar-nav li.nav-item.dropdown a.active.dropdown-item').closest(".dropdown-submenu");
 
-                    if (e.isVariableDefined(sm)) {
-                        var smParent = sm.children[0];
-                        smParent.classList.add("active");
-                    }
-                }
+              if(e.isVariableDefined(sm)) {
+                var smParent = sm.children[0];
+                smParent.classList.add("active");
+              }
             }
+          }
         }
     },
     // END: Active class
@@ -786,7 +843,7 @@ var e = {
                     menuItems.forEach(menuItem => {
                         menuItem.addEventListener('click', function (event) {
                             var filterValue = menuItem.getAttribute('data-filter');
-                            filter.arrange({ filter: filterValue });
+                            filter.arrange({filter: filterValue});
                             menuItems.forEach((control) => control.removeClass('active'));
                             menuItem.addClass('active');
                         });
@@ -803,132 +860,27 @@ var e = {
 };
 e.init();
 
+/* Custom Scrollbar */
+var el = document.querySelector('.left-sidebar');
+SimpleScrollbar.initEl(el);
 
-// The following code snippet is not a part of a theme package. It is just used to display color switcher and RTL demo on our Folio live preview site.
-
-/*****  START: COLOR SWITCHER AND RTL BUTTON SNIPPET  *****/
-
-// var rtlBtn = document.createElement('a');
-// rtlBtn.classList.add("rtlswitcher");
-// rtlBtn.setAttribute('href',"rtl/index.html");
-// rtlBtn.setAttribute('target', '_blank');
-// rtlBtn.innerHTML = "<i class='bi bi-toggle2-off'></i> <span>Switch to RTL</span> ";
-
-var ColorSwitcher = (function () {
-
-    function initColorSwitcher(colorSheets) {
-        var tempCon, colorSwitcher, controlBtn, colorSwitchs, linkHolderHtml, linkHolder;
-
-        if (Object.prototype.toString.call(colorSheets) !== "[object Array]") {
-            return;
-        }
-
-        tempCon = document.createDocumentFragment();
-
-        colorSwitcher = document.createElement("div");
-        colorSwitcher.classList.add("ColorSwitcher");
-
-        var colorHead = document.createElement("h6");
-        var colorText = document.createElement("p");
-        colorHead.innerHTML = "Color Switcher";
-        // colorText.innerHTML = "Select from options below to check template with color variations.";
-        colorText.innerHTML = "Click on any color from the palette to see live color scheme change in demo.";
-        colorSwitcher.appendChild(colorHead);
-        colorSwitcher.appendChild(colorText);
-
-        controlBtn = document.createElement("button");
-        controlBtn.classList.add("ColorSwitcher__control");
-
-        colorSwitchs = document.createElement("div");
-        colorSwitchs.classList.add("ColorSwitcher__switchs");
-
-        linkHolderHtml = document.createElement("link");
-        linkHolderHtml.rel = "stylesheet";
-        linkHolderHtml.id = "ColorSwitcherLinkHolder";
-        document.head.appendChild(linkHolderHtml);
-
-        linkHolder = document.getElementById("ColorSwitcherLinkHolder");
-
-        colorSheets.forEach(function (colorSheet, index) {
-            var colorSwitch;
-
-            if (colorSheet.color && colorSheet.title && colorSheet.href) {
-                colorSwitch = document.createElement("button");
-
-                colorSwitch.classList.add("ColorSwitcher__switch")
-                colorSwitch.title = colorSheet.title;
-                colorSwitch.dataset.index = index;
-                colorSwitch.style.backgroundColor = colorSheet.color;
-
-                colorSwitchs.appendChild(colorSwitch);
-            }
+/* Clipboard JS - Copy code button */
+var cl = document.querySelector('.copy-link');
+if(typeof !!cl && (cl) != 'undefined' && cl != null) {
+        var cle = document.querySelectorAll('.copy-link');
+        cle.forEach(el => {
+            el.addEventListener("click", function () {
+                      var theButton = this;
+                      var copyId = this.getAttribute('id');
+                      var clipboard = new ClipboardJS( '#' + copyId );
+                      
+                      clipboard.on('success', function(e) {
+                        e.clearSelection();
+                      theButton.innerHTML = 'Copied';
+                      setTimeout(function() {
+                          theButton.innerHTML = 'Copy';
+                        }, 10000);
+                      });
+            });         
         });
-
-        colorSwitchs.addEventListener("click", function (event) {
-            var index;
-
-            if (event.target.nodeName !== "BUTTON") {
-                return;
-            }
-
-            index = event.target.dataset.index;
-            linkHolder.href = colorSheets[index].href
-
-            return false;
-        });
-
-        controlBtn.addEventListener("click", function (event) {
-            event.target.parentElement.classList.toggle("ColorSwitcher--open");
-
-            return false;
-        });
-
-        colorSwitcher.appendChild(controlBtn);
-        colorSwitcher.appendChild(colorSwitchs);
-        tempCon.appendChild(colorSwitcher);
-        // tempCon.appendChild(rtlBtn);
-        document.body.appendChild(tempCon);
-    }
-
-    return {
-        init: initColorSwitcher
-    };
-})();
-
-var colorSheets = [
-    {
-        color: "#3d6dff",
-        title: "Switch to blue",
-        href: "assets/css/colors/blue.css"
-    },
-    {
-        color: "#ed692f",
-        title: "Switch to orange",
-        href: "assets/css/colors/orange.css"
-    },
-    {
-        color: "#930693",
-        title: "Switch to purple",
-        href: "assets/css/colors/purple.css"
-    },
-    {
-        color: "#be914b",
-        title: "Switch to brown",
-        href: "assets/css/colors/brown.css"
-    },
-    {
-        color: "#509151",
-        title: "Switch to green",
-        href: "assets/css/colors/green.css"
-    },
-    {
-        color: "#dab600",
-        title: "Switch to yellow",
-        href: "assets/css/colors/yellow.css"
-    }
-
-];
-
-ColorSwitcher.init(colorSheets);
-
-/*****  END: COLOR SWITCHER AND RTL BUTTON SNIPPET  *****/
+}

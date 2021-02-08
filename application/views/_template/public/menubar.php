@@ -95,56 +95,7 @@
     </div>
     <!-- Search END -->
 
-    <!-- Login Popup START -->
-    <div class="modal fade" id="topbarlogin">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-primary pattern-overlay-7">
-                    <div class="modal-title p-3 text-white-force">
-                        <h5 class="mb-0">Sign in to your account!</h5>
-                        <p class="mb-0">Nice to see you! Please log in with your account.</p>
-                    </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="w-100 p-3">
-                        <!-- Form START -->
-                        <form>
-                            <!-- Email -->
-                            <div class="mb-3">
-                                <label class="form-label" for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="E-mail">
-                            </div>
-                            <!-- Password -->
-                            <div class="mb-3">
-                                <label class="form-label" for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*********">
-                            </div>
-                            <!-- Checkbox -->
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">keep me signed in</label>
-                            </div>
-                            <!-- Button -->
-                            <div class="row align-items-center">
-                                <div class="col-sm-4">
-                                    <button type="submit" class="btn btn-dark btn-line">Login</button>
-                                </div>
-                                <div class="col-sm-8 text-sm-end">
-                                    <span class="text-muted">Don't have an account? <a href="sign-up.html">Signup here</a></span>
-                                </div>
-                            </div>
-                        </form>
-                        <!-- Form END -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Login Popup END -->
-
-    <!-- =======================
-Header START -->
+    <!-- Header START -->
     <header class="navbar-dark navbar-transparent bg-success navbar-sticky">
 
         <!-- Navbar top START -->
@@ -184,7 +135,7 @@ Header START -->
                                 <a href="contact.html" class="nav-link">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#topbarlogin"><i class="far fa-user me-2"></i>Login</a>
+                                <a href="<?= base_url('Auth') ?>" class="nav-link"><i class="far fa-user me-2"></i>Login</a>
                             </li>
                         </ul>
 

@@ -11,9 +11,9 @@ class Home extends CI_Controller
             'judul' => 'Website Terekel Nekad',
         ];
 
-        $this->load->view('_template/header', $data);
-        $this->load->view('_template/menubar');
+        $this->load->view('_template/public/header', $data);
+        $this->load->view('_template/public/menubar');
         $this->load->view('index');
-        $this->load->view('_template/footer');
+        $this->load->view('_template/public/footer');
     }
 }
