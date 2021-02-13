@@ -49,8 +49,9 @@ class Auth extends CI_Controller
             foreach ($this->data['users'] as $k => $user) {
                 $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
             }
+            redirect('admin/dashboard', $this->data);
 
-            $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'index', $this->data);
+            // $this->_render_page('admin' . DIRECTORY_SEPARATOR . 'dashboard', $this->data);
         }
     }
 
@@ -74,7 +75,7 @@ class Auth extends CI_Controller
                 //if the login is successful
                 //redirect them back to the home page
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
-                redirect('/', 'refresh');
+                redirect('admin/dashboard', 'refresh');
             } else {
                 // if the login was un-successful
                 // redirect them back to the login page
@@ -90,13 +91,17 @@ class Auth extends CI_Controller
                 'name' => 'identity',
                 'id' => 'identity',
                 'type' => 'text',
+                'class' => 'form-control',
+                'placeholder' => 'Username',
                 'value' => $this->form_validation->set_value('identity'),
             ];
 
             $this->data['password'] = [
                 'name' => 'password',
                 'id' => 'password',
+                'class' => 'form-control',
                 'type' => 'password',
+                'placeholder' => 'Password',
             ];
 
             $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'login', $this->data);
