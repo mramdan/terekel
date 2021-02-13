@@ -98,70 +98,13 @@
     <!-- Header START -->
     <header class="navbar-dark navbar-transparent bg-success navbar-sticky">
 
-        <!-- Navbar top START -->
-        <div class="navbar-top d-none d-lg-block">
-            <div class="container">
-                <div class="d-md-flex justify-content-between align-items-center">
-                    <!-- Navbar top Left-->
-                    <div class="d-flex align-items-center justify-content-center">
-                        <!-- Top info -->
-                        <ul class="nav justify-content-center justify-content-md-start">
-                            <li class="nav-item me-3" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" title="Sunday CLOSED">
-                                <span><i class="far fa-clock me-2"></i>Visit time: Mon-Sat 9:00-19:00</span>
-                            </li>
-                            <li class="nav-item">
-                                <a class="navbar-link" href="#"><i class="fas fa-headset me-2"></i>Call us now: +135-869-328</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Navbar top Right-->
-                    <div class="d-flex align-items-center justify-content-center">
-                        <!-- Language -->
-                        <div class="dropdown ms-3">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownLanguage" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="fa-fw me-2" src="<?= base_url() ?>assets/images/flags/uk.svg" alt=""> English </a>
-                            <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownLanguage">
-                                <span class="dropdown-item-text">Pilih Bahasa</span>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><img class="fa-fw me-2" src="<?= base_url() ?>assets/images/flags/sp.svg" alt=""> Español</a>
-                                <a class="dropdown-item" href="#"><img class="fa-fw me-2" src="<?= base_url() ?>assets/images/flags/fr.svg" alt=""> Français</a>
-                                <a class="dropdown-item" href="#"><img class="fa-fw me-2" src="<?= base_url() ?>assets/images/flags/gr.svg" alt=""> Deutsch</a>
-                            </div>
-                        </div>
-
-                        <!-- Top link -->
-                        <ul class="nav ms-3">
-                            <li class="nav-item">
-                                <a href="contact.html" class="nav-link">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= base_url('Auth') ?>" class="nav-link"><i class="far fa-user me-2"></i>Login</a>
-                            </li>
-                        </ul>
-
-                        <!-- Top social -->
-                        <ul class="list-unstyled d-flex">
-                            <li> <a class="px-2" href="#"><i class="fab fa-facebook-f"></i></a> </li>
-                            <li> <a class="px-2" href="#"><i class="fab fa-instagram"></i></a> </li>
-                            <li> <a class="ps-2" href="#"><i class="fab fa-twitter"></i></a> </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="divider-light opacity-1"></div>
-        <!-- Navbar top END -->
-
         <!-- Logo Nav START -->
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <!-- Logo START -->
-                <a class="navbar-brand" href="index.html">
-                    <!-- Logo SVG Code -->
-                    <svg class="navbar-brand-item" viewBox="0 0 189.37 60.812" xmlns="http://www.w3.org/2000/svg">
-                        <path class="fill-white" transform="translate(-5874.9 -436.84)" d="m5884 496.54-0.32-24.723 20.69 0.011v-7.983l-20.69-0.7v-15.623l22.25-0.267v-7.983h-31.02v57.268h9.09zm58.26-1.284a18.686 18.686 0 0 0 7.34-6.664 19.248 19.248 0 0 0 0-19.662 18.735 18.735 0 0 0-7.34-6.647 23.765 23.765 0 0 0-20.79 0 18.667 18.667 0 0 0-7.34 6.647 19.187 19.187 0 0 0 0 19.662 18.618 18.618 0 0 0 7.34 6.664 23.765 23.765 0 0 0 20.79 0zm-16.21-6.491a10.774 10.774 0 0 1-4.1-4.061 12.452 12.452 0 0 1 0-11.887 10.812 10.812 0 0 1 4.1-4.043 12.345 12.345 0 0 1 11.64 0 10.673 10.673 0 0 1 4.1 4.043 12.635 12.635 0 0 1 0 11.9 10.673 10.673 0 0 1-4.1 4.043 12.345 12.345 0 0 1-11.64 5e-3zm45.17 7.775v-59.7h-8.64v59.7h8.64zm22 0v-35.545h-8.64v35.541h8.64zm-1.68-43.545a5.4 5.4 0 0 0 1.87-1.909 4.988 4.988 0 0 0 0.72-2.62 4.938 4.938 0 0 0-0.72-2.655 5.5 5.5 0 0 0-1.87-1.875 5.219 5.219 0 0 0-5.26 0 5.559 5.559 0 0 0-1.89 1.875 5.021 5.021 0 0 0-0.71 2.655 5.073 5.073 0 0 0 0.71 2.62 5.45 5.45 0 0 0 1.89 1.909 5.213 5.213 0 0 0 5.26 0zm42.97 42.257a18.686 18.686 0 0 0 7.34-6.664 19.187 19.187 0 0 0 0-19.662 18.735 18.735 0 0 0-7.34-6.647 23.765 23.765 0 0 0-20.79 0 18.667 18.667 0 0 0-7.34 6.647 19.187 19.187 0 0 0 0 19.662 18.618 18.618 0 0 0 7.34 6.664 23.765 23.765 0 0 0 20.79 4e-3zm-16.21-6.491a10.844 10.844 0 0 1-4.1-4.061 12.452 12.452 0 0 1 0-11.887 10.883 10.883 0 0 1 4.1-4.043 12.345 12.345 0 0 1 11.64 0 10.673 10.673 0 0 1 4.1 4.043 12.635 12.635 0 0 1 0 11.9 10.673 10.673 0 0 1-4.1 4.043 12.345 12.345 0 0 1-11.64 9e-3z" />
-                        <path class="fill-primary" transform="translate(-5874.9 -436.84)" d="m6061.5 496.89a5.532 5.532 0 0 0 2.05-2.083 5.976 5.976 0 0 0 0-5.761 5.547 5.547 0 0 0-2.05-2.083 5.655 5.655 0 0 0-2.9-0.763 5.761 5.761 0 0 0-2.9 0.763 5.734 5.734 0 0 0-0.02 9.927 5.754 5.754 0 0 0 2.92 0.763 5.655 5.655 0 0 0 2.9-0.763z" />
-                    </svg>
+                <a class="navbar-brand" href="<?= base_url() ?>">
+                    <!-- Logo -->
+                    <img src="<?= base_url() ?>assets/images/logo.png" alt="Logo Terekel Nekad" width="100px" srcset="">
                 </a>
                 <!-- Logo END -->
 
@@ -173,14 +116,14 @@
                 <!-- Main Menu START -->
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"> <a class="nav-link" href="contact.html">Home</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>">Home</a></li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
                             <ul class="dropdown-menu" aria-labelledby="pagesMenu">
-                                <li> <a class="dropdown-item" href="about.html">Profile Terekel Nekad</a></li>
-                                <li> <a class="dropdown-item" href="about-advance.html">Visi & Misi</a></li>
-                                <li> <a class="dropdown-item" href="service.html">Sejarah</a></li>
+                                <li> <a class="dropdown-item" href="<?= base_url() ?>">Sejarah</a></li>
+                                <li> <a class="dropdown-item" href="<?= base_url() ?>">Visi & Misi</a></li>
+                                <li> <a class="dropdown-item" href="<?= base_url() ?>">Struktur Organisasi</a></li>
                             </ul>
                         </li>
 
@@ -190,19 +133,19 @@
                                 <div class="d-block d-sm-flex">
                                     <ul class="list-unstyled w-100 pe-0 pe-lg-5">
                                         <!-- <li class="dropdown-header">Agency Demos</li> -->
-                                        <li> <a class="dropdown-item" href="index.html">JTA Bojong</a> </li>
-                                        <li> <a class="dropdown-item" href="index-2.html">Taman Batu</a> </li>
-                                        <li> <a class="dropdown-item" href="index-3.html">Kampung Tajur<span class="badge bg-danger ms-2">Hot</span></a> </li>
-                                        <li> <a class="dropdown-item" href="index-5.html">Kampung Air Tajur</a> </li>
-                                        <li> <a class="dropdown-item" href="index-4.html">Kolam Renang Cihanjawar</a> </li>
+                                        <li> <a class="dropdown-item" href="<?= base_url() ?>">JTA Bojong</a> </li>
+                                        <li> <a class="dropdown-item" href="<?= base_url() ?>">Taman Batu</a> </li>
+                                        <li> <a class="dropdown-item" href="<?= base_url() ?>">Kampung Tajur<span class="badge bg-danger ms-2">Hot</span></a> </li>
+                                        <li> <a class="dropdown-item" href="<?= base_url() ?>">Kampung Air Tajur</a> </li>
+                                        <li> <a class="dropdown-item" href="<?= base_url() ?>">Kolam Renang Cihanjawar</a> </li>
                                     </ul>
                                     <ul class="list-unstyled w-100 pe-0 pe-lg-5">
                                         <!-- <li class="dropdown-header mt-3 mt-sm-0">Portfolio Demos</li> -->
-                                        <li> <a class="dropdown-item" href="index-6.html">Kolam Renang Darmaga Cihanjawar</a> </li>
-                                        <li> <a class="dropdown-item" href="index-7.html">Panenjoan Sindang Panon</a> </li>
-                                        <li> <a class="dropdown-item" href="index-8.html">Curug Cisaruat Burangrang</a> </li>
-                                        <li> <a class="dropdown-item" href="index-9.html">Kuliner</a> </li>
-                                        <li> <a class="dropdown-item" href="index-10.html">Penginapan</a> </li>
+                                        <li> <a class="dropdown-item" href="<?= base_url() ?>">Kolam Renang Darmaga Cihanjawar</a> </li>
+                                        <li> <a class="dropdown-item" href="<?= base_url() ?>">Panenjoan Sindang Panon</a> </li>
+                                        <li> <a class="dropdown-item" href="<?= base_url() ?>">Curug Cisaruat Burangrang</a> </li>
+                                        <li> <a class="dropdown-item" href="<?= base_url() ?>">Kuliner</a> </li>
+                                        <li> <a class="dropdown-item" href="<?= base_url() ?>">Penginapan</a> </li>
                                     </ul>
                                 </div>
                                 <!-- Nav action box -->
@@ -210,15 +153,17 @@
                                     <div class="text-center bg-primary-multiply position-relative overflow-hidden px-3 py-5 w-100">
                                         <h4 class="mb-0 text-white">Liburan Kuy!</h4>
                                         <p class=" text-white">Supaya tiis ceuli herang panon..</p>
-                                        <a class="btn btn-white btn-sm" target="_blank" href="https://folio.webestica.com/landing">Kontak Kami</a>
+                                        <a class="btn btn-white btn-sm" target="_blank" href="<?= base_url() ?>">Kontak Kami</a>
                                         <img class="bg-primary-multiply position-absolute top-50 start-50 translate-middle z-index-n9 w-100" src="<?= base_url() ?>assets/images/bg/03.jpg" alt="">
                                     </div>
                                 </div>
                             </div>
                         </li>
 
-                        <li class="nav-item"> <a class="nav-link" href="contact.html">ADART</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="contact.html">Tentang</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>">Berita <span class="badge bg-warning ms-2"> news </span></a></li>
+                        <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>">ADART</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>">Tentang</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>">Kontak</a></li>
                     </ul>
                 </div>
                 <!-- Main Menu END -->
@@ -232,8 +177,8 @@
                         </a>
                     </div>
                     <!-- Nav Button -->
-                    <div class="nav-item d-none d-xl-block">
-                        <a href="#" class="btn btn-sm btn-primary mb-0 mx-2">Get Quota !</a>
+                    <div class="nav-item d-xl-block">
+                        <a href="#" class="btn btn-sm btn-primary mb-0 mx-2"><i class="far fa-user me-2"></i>Login</a>
                     </div>
                     <!-- Nav side Opener -->
                     <div class="nav-item">

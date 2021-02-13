@@ -15,8 +15,7 @@
                 <!-- Navbar right -->
                 <div>
                     <ul class="text-right list-inline m-0">
-                        <li class="list-inline-item me-2 me-md-4"> <a class="text-white" href="https://support.webestica.com" target="_blank">Support</a> </li>
-                        <li class="list-inline-item text-white"> <span class="badge bg-danger text-white">v1.0.0</span></li>
+                        <li class="list-inline-item me-1 me-md-1"> <a class="btn btn-sm btn-primary text-white" href="<?= base_url('auth/logout') ?>"><i class="far fa-user me-2"></i>Logout</a> </li>
                     </ul>
                 </div>
             </div>

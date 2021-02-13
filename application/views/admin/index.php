@@ -4,14 +4,10 @@
         <div class="col-12">
             <!-- Page title -->
             <div class="my-5">
-                <h2>Getting Started</h2>
-                <p class="lead">Get started with Folio by following this guide, It will help you to get the most out of our Bootstrap Theme quickly with easy understanding.</p>
+                <h2>Selamat Datang, Admin !</h2>
+                <p class="lead">Halaman Adminstrator digunakan untuk mengolah konten website yang akan di tampilkan dengan mudah dan cepat serta gampang di pmengerti. untuk mengaturnya silahkan explore di menu yang telah di sediakan.</p>
                 <div class="py-1 bg-light-overlay-dotted "></div>
             </div>
-
-            <!-- Page content -->
-            <p class="lead">Thank you for purchasing Folio theme! We’re glad that you found what you were looking for. It is our goal that you are always happy with what you bought from us, and We hope that you will be able to create an outstanding website with our theme easily.</p>
-            <p class="lead">Before proceeding with the theme installation, It is recommended that you follow the steps listed in this guide. We have covered all kinds of necessary information, and provide you with all the guidelines and details that you will need to use Folio theme. If you can’t find the answer you’re looking for, We encourage you to reach to us through our support portal. We'll be glad to help you out with your queries. Please generate ticket through our <a href="https://support.webestica.com" target="_blank">support portal</a> and you shall hear back very soon. </p>
 
             <!-- Directory structure -->
             <h4 class="mt-5">Directory structure</h4>
